@@ -103,8 +103,15 @@ git remote rm 名字如origin  解除关系并不是物理删除
 ```
 从远程到本地 克隆clone
 ```
+git clone SHH地址
 
-
-
-
+Git支持多种协议如https但ssh协议最快
 ```
+## 分支管理
+
+## 标签管理
+
+## 参与开源项目
+在别人网页点fork  后克隆
+希望官方修改可以pull request
+![](clone.png)
