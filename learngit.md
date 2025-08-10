@@ -65,4 +65,46 @@ git reset --hard 1094a版本号(可找回版本)或 git reflog (查看命令历�
 ```
 
 ### remove file
+```
+rm test.txt(删除文件) 可通过git status看
 
+从版本库里删除文件:
+git rm test.txt
+git commit -m "remove test.txt"
+
+删错了：
+git checkout -- test.txt(用版本库里的版本替换工作区的版本)
+```
+
+## remote repository
+
+### SSH Key
+```
+看主目录下有无.shh文件 若没有则
+ssh-keygen -t rsa -C "youremail@example.com" 添加
+后在GitHub 里添加id_rsa.pub 里的密钥
+```
+
+### add remote repository
+从本地到远程
+```
+先在github上创建仓库
+有本地库时 连接远程库：
+git remote add origin(给远程库取名) *git@github.com:759761507/LearnGit.git*(远程库SSH地址)
+
+第一次推送 git push -u origin master
+后续提交命令：
+git push origin master(把本地master分支最新修改推送至GitHub)
+
+
+删除本地和远程绑定关系：
+git remote -v (查看远程库信息)
+git remote rm 名字如origin  解除关系并不是物理删除
+```
+从远程到本地 克隆clone
+```
+
+
+
+
+```
