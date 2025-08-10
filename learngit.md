@@ -108,8 +108,64 @@ git clone SHH地址
 Git支持多种协议如https但ssh协议最快
 ```
 ## 分支管理
+### 创建合并分支
+```
+git switch -c <name> (创建并切换到新的分支)
+git switch <name> (切换到已有的master分支)
+
+查看分支: git branch
+创建分支: git branch <name>
+
+合并某分支到当前分支: git merge<name> (**只改目标分支的改动添加到当前分支**)
+删除分支: git branch -d <name>
+```
+**多个分支相同的地方不一样 手动解决冲突** 
+```
+git log --graph  看分支合并图
+
+正常是Fast forward模式
+git merge --no-ff -m "说明" 分支名 (在合并分支后commit新分支)
+```
+
+### fix bug
+创建新分支修改bug
+```
+储存工作现场: git stash
+git status 看工作区情况
+在哪个分支上修改bug 在哪个分支上创建临时分支 修改完 回来merge
+
+git stash list 查看储存的文件
+git stash apply stash@{0} 恢复指定文件 后 git stash drop 删除stash里的文件
+
+修复分支里同样的bug: git cherry-pick <commit>
+```
+
+### 添加新功能Feature分支
+
+强行删除 git branch -D <name>  合并完后删除-d
+
 
 ## 标签管理
+tag 让人容易记住的commit
+
+```
+git tag <name> 在当前打标签 git tag 查看标签
+git tag -a <name> -m " "<commit> 在某次commit里打标签  -a名字 -m说明
+git show <tagname> 看标签信息
+git tag -d <tagname> 删除标签
+```
+以上标签都在本地
+
+远程标签:
+```
+git push origin <tagname> 推送一个远程标签
+git push origin --tags 推送全部未推送过的本地标签
+
+删除远程标签:
+1.先删除本地同上
+2.git push origin :refs/tags/<tagname> 删除远程标签
+
+```
 
 ## 参与开源项目
 在别人网页点fork  后克隆
